@@ -14,10 +14,11 @@
 </p>
 
 <p>
-  <strong>Photos :</strong><br/>
+  <strong>Images :</strong><br/>
   <% @offer.images.each do |image| %>
-    <img src='<%= rails_blob_path(image) %>'/>
+    <%= image_tag image.variant(resize: "400x400") %>
   <% end %>
+  <br/><%= link_to 'Supprimer toutes les images', "#{offer_path(@offer)}/images", method: :delete, data: { confirm: 'Voulez-vous vraiment supprimer toutes les images de cette offre ?' } %>
 </p>
 
 <%= link_to 'Modifier', edit_offer_path(@offer) %> |

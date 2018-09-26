@@ -1,5 +1,5 @@
 class OffersController < ApplicationController
-  before_action :set_offer, only: [:show, :edit, :update, :destroy]
+  before_action :set_offer, only: [:show, :edit, :update, :destroy, :purge_images]
 
   # GET /offers
   # GET /offers.json
@@ -60,6 +60,12 @@ class OffersController < ApplicationController
       format.html { redirect_to offers_url, notice: 'Offer was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  # DELETE /offers/1/images
+  def purge_images
+    @offer.images.purge
+    redirect_to @offer
   end
 
   private
