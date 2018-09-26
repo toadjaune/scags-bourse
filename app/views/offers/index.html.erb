@@ -1,0 +1,27 @@
+<h1>Offres actuellement disponibles</h1>
+
+<%= link_to 'Créer une nouvelle offre', new_offer_path %>
+<table>
+  <thead>
+    <tr>
+      <th>Titre</th>
+      <th>Propriétaire</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @offers.each do |offer| %>
+      <tr>
+        <td><%= offer.title %></td>
+        <td><%= offer.user %></td>
+        <td><%= link_to 'Voir l\'offre', offer %></td>
+        <td><%= link_to 'Modifier', edit_offer_path(offer) %></td>
+        <td><%= link_to 'Supprimer', offer, method: :delete, data: { confirm: 'Voulez-vous vraiment supprimer cette offre ?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

@@ -1,0 +1,18 @@
+<p>
+  <strong>Titre :</strong>
+  <%= @offer.title %>
+</p>
+
+<p>
+  <strong>Texte :</strong>
+  <%= @offer.text %>
+</p>
+
+<p>
+  <strong>Propriétaire :</strong>
+  <%= @offer.user %>
+</p>
+
+<%= link_to 'Modifier', edit_offer_path(@offer) %> |
+<%= link_to 'Supprimer', @offer, method: :delete, data: { confirm: 'Voulez-vous vraiment supprimer cette offre ?' } %> |
+<%= link_to 'Retour à la liste', offers_path %>
