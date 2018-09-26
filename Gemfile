@@ -18,6 +18,7 @@ gem 'mini_racer', platforms: :ruby
 
 # Authenticate users with Devise
 gem 'devise', '~> 4.0'
+gem 'devise-i18n'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
