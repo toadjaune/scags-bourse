@@ -13,6 +13,13 @@
   <%= @offer.user %>
 </p>
 
+<p>
+  <strong>Photos :</strong><br/>
+  <% @offer.images.each do |image| %>
+    <img src='<%= rails_blob_path(image) %>'/>
+  <% end %>
+</p>
+
 <%= link_to 'Modifier', edit_offer_path(@offer) %> |
 <%= link_to 'Supprimer', @offer, method: :delete, data: { confirm: 'Voulez-vous vraiment supprimer cette offre ?' } %> |
 <%= link_to 'Retour à la liste', offers_path %>

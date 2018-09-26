@@ -20,7 +20,10 @@
     <%= form.label :text, 'Contenu détaillé' %>
     <%= form.text_area :text %>
   </div>
-
+  <div class="field">
+    <%= form.label :images, 'Images :' %>
+    <%= form.file_field :images, multiple: true %>
+  </div>
   <div class="actions">
     <%= form.submit 'Valider' %>
   </div>
