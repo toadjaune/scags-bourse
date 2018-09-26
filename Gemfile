@@ -57,6 +57,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'better_errors', '~> 2.5'
   gem 'binding_of_caller'
+  gem 'annotate'
 end
 
 group :test do
