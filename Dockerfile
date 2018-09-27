@@ -11,4 +11,6 @@ RUN apt-get install -y build-essential libpq-dev
 RUN gem install bundler
 RUN bundle install --deployment --without development test
 
+RUN bin/rails assets:precompile
+
 CMD bin/rails server

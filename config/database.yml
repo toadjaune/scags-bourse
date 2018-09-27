@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: scags-bourse_production
-  username: scags-bourse
-  password: <%= ENV['SCAGS-BOURSE_DATABASE_PASSWORD'] %>
+  database: scags
+  username: scags
+  password: <%= Rails.application.credentials.database_password %>
