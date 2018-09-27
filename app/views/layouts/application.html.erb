@@ -18,7 +18,6 @@
           <li> <%= button_to('Déconnexion', destroy_user_session_path, method: :delete) %></li>
         <% else %>
           <li> <%= button_to('Connexion', new_user_session_path, method: :get) %> </li>
-          <li> <%= button_to('Inscription', new_user_registration_path, method: :get) %> </li>
         <% end %>
       </ul>
     </header>
