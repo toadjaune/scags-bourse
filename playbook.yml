@@ -1,0 +1,55 @@
+- hosts: all
+  become: true
+  vars:
+    git_clone_url:      "https://github.com/toadjaune/scags-bourse.git"
+    target_dir:         "/var/www/scags"
+    docker_image_name:  "scags"
+    systemd_unit_name:  "scags.service"
+
+  tasks:
+    - name: Clone the repository (always deploy master)
+      git:
+        repo: "{{ git_clone_url }}"
+        dest: "{{ target_dir }}"
+
+    - name: Copy the rails secrets encryption key
+      copy:
+        src:  config/master.key
+        dest: "{{ target_dir }}/config/master.key"
+
+    - name: Build the docker image
+      command: "docker build -t {{ docker_image_name }} ."
+      args:
+        chdir: "{{ target_dir }}"
+
+    - name: Create the systemd unit file
+      copy:
+        dest: "/etc/systemd/system/{{ systemd_unit_name }}"
+        content: |
+          [Unit]
+          Description=Bourse d'échange Ski Club AGS
+          After=docker.socket
+
+          [Service]
+          ExecStart=docker run --name {{ docker_container_name }} --net=host -v {{ target_dir }}/log:/code/log -v {{ target_dir }}/storage:/code/storage {{ docker_image_name }}
+          WorkingDirectory={{ target_dir }}
+          Restart=always
+
+          [Install]
+          WantedBy=multi-user.target
+
+    - name: Stop the service
+      systemd:
+        name:     "{{ systemd_unit_name }}"
+        state:    stopped
+        daemon_reload: yes
+
+    - name: Run database migrations
+      command: "docker run --name {{ docker_container_name }} --net=host -v {{ target_dir }}/log:/code/log {{ target_dir }}/storage:/code/storage {{ docker_image_name }} bin/rails db:migrate"
+
+    - name: Enable and restart the service
+      systemd:
+        name:     "{{ systemd_unit_name }}"
+        state:    started
+        enabled:  yes
+
