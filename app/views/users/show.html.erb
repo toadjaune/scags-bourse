@@ -1,0 +1,22 @@
+<p>
+  <strong>Nom :</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Email :</strong>
+  <%= @user.email%>
+</p>
+
+<p>
+  <strong>Téléphone :</strong>
+  <%= @user.phone %>
+</p>
+
+<%= link_to 'Modifier', edit_user_path(@user) %>
+<% if current_user.admin? %>
+  | <%= link_to 'Supprimer', @user, method: :delete, data: { confirm: 'Voulez-vous vraiment supprimer cet utilisateur ?' } %><br/>
+  <%= link_to 'Retour à la liste des utilisateurs', users_path %>
+<% end %>
+<br/>
+<%= link_to 'Retour à la page d\'accueil', root_path %>

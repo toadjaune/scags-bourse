@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # Normal devise routes for a user login/logout, etc…
   devise_for :users
   # Classic routes for a user
-  get 'users', to: 'users#index'
+  resources :users
 
   # Normal routes for an offer
   resources :offers

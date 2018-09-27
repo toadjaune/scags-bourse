@@ -1,12 +1,23 @@
 <h1>Liste des utilisateurs</h1>
 
+<%= link_to 'Créer un nouvel utilisateur', new_user_path %>
 <table>
   <tr>
+    <th> Nom </th>
     <th> Email </th>
+    <th> Téléphone </th>
+    <th> Admin </th>
+    <th> Email validé </th>
   </tr>
   <% @users.each do |user| %>
     <tr>
+      <td> <%= user.name %> </td>
       <td> <%= user.email %> </td>
+      <td> <%= user.phone %> </td>
+      <td> <%= user.admin %> </td>
+      <td> <%= user.confirmed? %> </td>
+      <td> <%= link_to 'Modifier', edit_user_path(user) %> </td>
+      <td> <%= link_to 'Supprimer', user, method: :delete, data: { confirm: 'Voulez-vous vraiment supprimer cet utilisateur ?' } %> </td>
     </tr>
   <% end %>
 

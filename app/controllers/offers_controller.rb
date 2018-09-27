@@ -29,7 +29,7 @@ class OffersController < ApplicationController
     @offer.user = current_user
 
     if @offer.save
-      redirect_to @offer, notice: 'L\'offre a été crée avec succès'
+      redirect_to @offer, notice: 'L\'offre a été créée avec succès'
     else
       render :new
     end

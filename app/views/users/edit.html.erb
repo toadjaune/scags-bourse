@@ -1,0 +1,11 @@
+<h1>Modification d'un utilisateur</h1>
+
+<%= render 'form', user: @user %>
+
+<%= link_to 'Annuler', @user %>
+<% if current_user.admin? %>
+  | <%= link_to 'Supprimer', @user, method: :delete, data: { confirm: 'Voulez-vous vraiment supprimer cet utilisateur ?' } %><br/>
+  <%= link_to 'Retour à la liste des utilisateurs', users_path %>
+<% end %>
+<br/>
+<%= link_to 'Retour à la page d\'accueil', root_path %>
