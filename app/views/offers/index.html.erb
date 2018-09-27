@@ -16,8 +16,10 @@
         <td><%= offer.title %></td>
         <td><%= offer.user %></td>
         <td><%= link_to 'Voir l\'offre', offer %></td>
-        <td><%= link_to 'Modifier', edit_offer_path(offer) %></td>
-        <td><%= link_to 'Supprimer', offer, method: :delete, data: { confirm: 'Voulez-vous vraiment supprimer cette offre ?' } %></td>
+        <% if current_user_can_modify?(offer) %>
+          <td><%= link_to 'Modifier', edit_offer_path(offer) %></td>
+          <td><%= link_to 'Supprimer', offer, method: :delete, data: { confirm: 'Voulez-vous vraiment supprimer cette offre ?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

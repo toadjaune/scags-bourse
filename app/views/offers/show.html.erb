@@ -21,6 +21,8 @@
   <br/><%= link_to 'Supprimer toutes les images', "#{offer_path(@offer)}/images", method: :delete, data: { confirm: 'Voulez-vous vraiment supprimer toutes les images de cette offre ?' } %>
 </p>
 
-<%= link_to 'Modifier', edit_offer_path(@offer) %> |
-<%= link_to 'Supprimer', @offer, method: :delete, data: { confirm: 'Voulez-vous vraiment supprimer cette offre ?' } %> |
+<% if current_user_can_modify?(@offer) %>
+  <%= link_to 'Modifier', edit_offer_path(@offer) %> |
+  <%= link_to 'Supprimer', @offer, method: :delete, data: { confirm: 'Voulez-vous vraiment supprimer cette offre ?' } %> |
+<% end %>
 <%= link_to 'Retour à la liste', offers_path %>

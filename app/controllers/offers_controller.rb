@@ -1,6 +1,9 @@
 class OffersController < ApplicationController
+  include OffersHelper
+
   before_action :authenticate_user!
   before_action :set_offer, only: [:show, :edit, :update, :destroy, :purge_images]
+  before_action :ensure_current_user_can_modify, only: [:update, :destroy, :purge_images]
 
   # GET /offers
   # GET /offers.json
@@ -58,7 +61,7 @@ class OffersController < ApplicationController
   def destroy
     @offer.destroy
     respond_to do |format|
-      format.html { redirect_to offers_url, notice: 'Offer was successfully destroyed.' }
+      format.html { redirect_to offers_url, notice: 'L\'offre a été supprimée avec succès' }
       format.json { head :no_content }
     end
   end
@@ -73,6 +76,12 @@ class OffersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_offer
       @offer = Offer.find(params[:id])
+    end
+
+    def ensure_current_user_can_modify
+      if ! current_user_can_modify?(@offer)
+        redirect_to @offer, alert: 'Vous n\'êtes pas autorisé à modifier cette offre'
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
