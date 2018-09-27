@@ -18,7 +18,9 @@
   <% @offer.images.each do |image| %>
     <%= image_tag image.variant(resize: "400x400") %>
   <% end %>
-  <br/><%= link_to 'Supprimer toutes les images', "#{offer_path(@offer)}/images", method: :delete, data: { confirm: 'Voulez-vous vraiment supprimer toutes les images de cette offre ?' } %>
+  <% if current_user_can_modify?(@offer) %>
+    <br/><%= link_to 'Supprimer toutes les images', "#{offer_path(@offer)}/images", method: :delete, data: { confirm: 'Voulez-vous vraiment supprimer toutes les images de cette offre ?' } %>
+  <% end %>
 </p>
 
 <% if current_user_can_modify?(@offer) %>
