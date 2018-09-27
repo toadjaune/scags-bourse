@@ -74,11 +74,12 @@ Rails.application.configure do
     port: 25
   }
   config.action_mailer.default_options = {
-    from: "scags-noreply@rez-gif.supelec.fr",
-    reply_to: "noreply@example.com"
+    from: "Ski Club Alpe du Grand Serre <scags-noreply@rez-gif.supelec.fr>",
+    reply_to: "Ne pas répondre <noreply@example.com>"
   }
   config.action_mailer.default_url_options = {
-    host: "https://bourse.skiclub-alpedugrandserre.com"
+    # host: "https://bourse.skiclub-alpedugrandserre.com"
+    host: "https://scags-bourse.toadjaune.eu"
   }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
