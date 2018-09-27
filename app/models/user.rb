@@ -32,6 +32,8 @@ class User < ApplicationRecord
   # :lockable, :timeoutable, :registerable, and :omniauthable
   devise :database_authenticatable, :confirmable, :rememberable, :trackable, :validatable, :recoverable
 
+  has_many :offers
+
   def to_s
     if name
       return name

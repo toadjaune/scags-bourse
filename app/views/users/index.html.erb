@@ -8,6 +8,7 @@
     <th> Téléphone </th>
     <th> Admin </th>
     <th> Email validé </th>
+    <th> Nombre d'offres </th>
   </tr>
   <% @users.each do |user| %>
     <tr>
@@ -16,6 +17,7 @@
       <td> <%= user.phone %> </td>
       <td> <%= user.admin %> </td>
       <td> <%= user.confirmed? %> </td>
+      <td> <%= user.offers.count %> </td>
       <td> <%= link_to 'Modifier', edit_user_path(user) %> </td>
       <td> <%= link_to 'Supprimer', user, method: :delete, data: { confirm: 'Voulez-vous vraiment supprimer cet utilisateur ?' } %> </td>
     </tr>
