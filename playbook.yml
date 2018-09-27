@@ -4,6 +4,7 @@
     git_clone_url:      "https://github.com/toadjaune/scags-bourse.git"
     target_dir:         "/var/www/scags"
     docker_image_name:  "scags"
+    docker_container_name: "scags"
     systemd_unit_name:  "scags.service"
 
   tasks:
@@ -31,7 +32,8 @@
           After=docker.socket
 
           [Service]
-          ExecStart=docker run --name {{ docker_container_name }} --net=host -v {{ target_dir }}/log:/code/log -v {{ target_dir }}/storage:/code/storage {{ docker_image_name }}
+          ExecStart=/usr/bin/docker run --name {{ docker_container_name }} --rm --net=host -v {{ target_dir }}/log:/code/log -v {{ target_dir }}/storage:/code/storage {{ docker_image_name }}
+          ExecStop=/usr/bin/docker stop {{ docker_container_name }}
           WorkingDirectory={{ target_dir }}
           Restart=always
 
@@ -45,7 +47,7 @@
         daemon_reload: yes
 
     - name: Run database migrations
-      command: "docker run --name {{ docker_container_name }} --net=host -v {{ target_dir }}/log:/code/log {{ target_dir }}/storage:/code/storage {{ docker_image_name }} bin/rails db:migrate"
+      command: "docker run --name {{ docker_container_name }} --rm --net=host -v {{ target_dir }}/log:/code/log {{ target_dir }}/storage:/code/storage {{ docker_image_name }} bin/rails db:migrate"
 
     - name: Enable and restart the service
       systemd:
