@@ -13,4 +13,4 @@ RUN bundle install --deployment --without development test
 
 RUN bin/rails assets:precompile
 
-CMD bin/rails server
+CMD bin/rails server --binding localhost
