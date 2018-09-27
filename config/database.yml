@@ -81,5 +81,6 @@ test:
 production:
   <<: *default
   database: scags
+  hostname: localhost
   username: scags
   password: <%= Rails.application.credentials.database_password %>
