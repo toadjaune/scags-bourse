@@ -13,4 +13,4 @@ RUN bundle install --deployment --without development test
 
 RUN bin/rails assets:precompile
 
-CMD bin/rails server --binding localhost
+CMD bin/rails server --binding localhost --port 3080
