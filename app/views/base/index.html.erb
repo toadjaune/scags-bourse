@@ -1,4 +1,16 @@
 <h1>Page d'accueil</h1>
+
+<% if user_signed_in? %>
+  <p>
+    <%= button_to 'Liste des offres', offers_path, method: :get %>
+    <%= button_to 'Nouvelle offre', new_offer_path, method: :get %>
+    <%= button_to 'Infos de contact', current_user, method: :get %>
+    <% if current_user.admin? %>
+        <%= button_to 'Liste des utilisateurs', users_path, method: :get %>
+    <% end %>
+  </p>
+<% end %>
+
 <p>Bienvenue !</p>
 <p>Sur ce site, vous pouvez proposer du matériel en revente au sein du club, et voir les offres des autres.</p>
 
@@ -13,4 +25,3 @@
     <p>En tant qu'administrateur, vous avez aussi accès à la <%= link_to 'liste des utilisateurs', users_path %>.</p>
   <% end %>
 <% end %>
-

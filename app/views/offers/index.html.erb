@@ -1,12 +1,15 @@
 <h1>Offres actuellement disponibles</h1>
 
-<%= link_to 'Créer une nouvelle offre', new_offer_path %>
+<p>
+  <%= button_to 'Créer une nouvelle offre', new_offer_path, method: :get %>
+  <%= button_to 'Page d\'accueil', root_path, method: :get%>
+</p>
 <table>
   <thead>
     <tr>
       <th>Titre</th>
       <th>Propriétaire</th>
-      <th colspan="2"></th>
+      <th colspan="3"></th>
     </tr>
   </thead>
 

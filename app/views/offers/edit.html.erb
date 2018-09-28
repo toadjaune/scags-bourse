@@ -2,5 +2,7 @@
 
 <%= render 'form', offer: @offer %>
 
-<%= link_to 'Annuler', @offer %> |
-<%= link_to 'Retour à la liste des offres', offers_path %>
+<p>
+  <%= button_to 'Annuler', @offer, method: :get %>
+  <%= button_to 'Retour à la liste des offres', offers_path, method: :get %>
+</p>

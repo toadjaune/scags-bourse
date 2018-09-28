@@ -13,10 +13,11 @@
   <%= @user.phone %>
 </p>
 
-<%= link_to 'Modifier', edit_user_path(@user) %>
-<% if current_user.admin? %>
-  | <%= link_to 'Supprimer', @user, method: :delete, data: { confirm: 'Voulez-vous vraiment supprimer cet utilisateur ?' } %><br/>
-  <%= link_to 'Retour à la liste des utilisateurs', users_path %>
-<% end %>
-<br/>
-<%= link_to 'Retour à la page d\'accueil', root_path %>
+<p>
+  <%= button_to 'Modifier', edit_user_path(@user), method: :get %>
+  <% if current_user.admin? %>
+    <%= button_to 'Supprimer', @user, method: :delete, data: { confirm: 'Voulez-vous vraiment supprimer cet utilisateur ?' } %>
+    <%= button_to 'Liste des utilisateurs', users_path, method: :get %>
+  <% end %>
+  <%= button_to 'Page d\'accueil', root_path, method: :get%>
+</p>

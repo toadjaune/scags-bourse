@@ -17,22 +17,22 @@
 /* Merci Green ! */
 /* Général */
 * {
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html, body {
-	height: 100%;
+  height: 100%;
 }
 
 body {
-	background-color: #333333;
-	color: #e9e9e9;
-	position: relative;
-	min-height: 100vh;
+  background-color: #333333;
+  color: #e9e9e9;
+  position: relative;
+  min-height: 100vh;
   margin: 0px;
-  font-family: "DejaVu", serif; 
+  font-family: "DejaVu", serif;
 }
 
 section {
@@ -52,13 +52,13 @@ section {
 }
 
 .hidden {
-	display: none;
+  display: none;
 }
 .left {
-	float: left;
+  float: left;
 }
 .right {
-	float: right;
+  float: right;
 }
 .flex-container {
   display: flex;
@@ -85,11 +85,11 @@ section {
 
 /* Header */
 header {
-	background-color: #444444;
-	width: 100%;
-	height: 60px;
-	font-family: sans-serif;
-	padding-left: 20px;
+  background-color: #444444;
+  width: 100%;
+  height: 60px;
+  font-family: sans-serif;
+  padding-left: 20px;
 }
 
 
@@ -104,7 +104,7 @@ header h1 {
   line-height: 60px;
   margin-top: 0;
   margin-bottom: 0;
-	text-transform: capitalize;
+  text-transform: capitalize;
 }
 
 header h1 a {
@@ -114,30 +114,30 @@ header h1 a {
 
 header ul {
   float: right;
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	height: 100%;
-	display: inline-block;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: inline-block;
 }
 
 header ul li {
-	display: inline-block;
-	padding-left: 10px;
-	padding-right: 10px;
-	height: 90%;
-	line-height: 30px;
-	text-align: center;
+  display: inline-block;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 90%;
+  line-height: 30px;
+  text-align: center;
 }
 
 header ul li a {
-	color: #dddddd;
-	text-decoration: none;
-	vertical-align: middle;
+  color: #dddddd;
+  text-decoration: none;
+  vertical-align: middle;
 }
 
 header ul li.active {
-	background-color: #666666;
+  background-color: #666666;
 }
 
 header ul li input[type=submit] {
@@ -153,51 +153,60 @@ header ul li input[type=submit] {
 }
 
 label {
-	margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 /* Content */
 #content {
-	width: 90%;
-	margin: auto;
-	padding-bottom: 50px;
+  width: 90%;
+  margin: auto;
+  padding-bottom: 50px;
+}
+
+.toplevel-content {
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 table {
-	border-collapse: collapse;
-	margin: auto;
-	margin: 10px 10px 30px 30px;
-	border: 3px solid #666666;
-	max-width: 100%;
+  border-collapse: collapse;
+  margin: auto;
+  margin: 10px 0px 30px 0px;
+  border: 3px solid #666666;
+  max-width: 100%;
 }
 td, th {
-	border: 1px solid #666666;
-	padding: 3px 8px;
+  border: 1px solid #666666;
+  padding: 3px 8px;
 }
 
 th {
-	border-bottom: 3px solid #666666;
-	padding: 3px 6px;
+  border-bottom: 3px solid #666666;
+  padding: 3px 6px;
 }
 
 input {
   margin-bottom : 10px;
 }
 
+form {
+  display: inline;
+}
+
 input[type=number] {
-	background-color: #6A6A6A;
-	color: #eeeeee;
-	border: solid 1px #888888;
-	width: 3em;
-	text-align: center;
+  background-color: #6A6A6A;
+  color: #eeeeee;
+  border: solid 1px #888888;
+  width: 3em;
+  text-align: center;
 }
 
 input[type=number]::-webkit-inner-spin-button {
-	-webkit-appearance: none;
+  -webkit-appearance: none;
 }
 
 input[type=number]::placeholder {
-	color: #a0a0a0;
+  color: #a0a0a0;
 }
 
 input[type=submit] {
@@ -221,30 +230,30 @@ a {
 
 /* Footer */
 footer {
-	bottom : 0;
+  bottom : 0;
   position: absolute;
   background-color: #444444;
-	width: 100%;
-	height: 60px;
-	font-family: sans-serif;
-	padding-left: 20px;
+  width: 100%;
+  height: 60px;
+  font-family: sans-serif;
+  padding-left: 20px;
 }
 
 footer ul {
   float: right;
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	height: 100%;
-	display: inline-block;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: inline-block;
 }
 
 footer ul li {
-	display: inline-block;
-	padding-left: 10px;
-	padding-right: 10px;
-	line-height: 30px;
-	text-align: center;
+  display: inline-block;
+  padding-left: 10px;
+  padding-right: 10px;
+  line-height: 30px;
+  text-align: center;
   vertical-align: middle;
 }
 

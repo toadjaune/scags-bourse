@@ -25,12 +25,12 @@
     <%= image_tag image.variant(resize: "400x400") %>
   <% end %>
   <% if current_user_can_modify?(@offer) %>
-    <br/><%= link_to 'Supprimer toutes les images', "#{offer_path(@offer)}/images", method: :delete, data: { confirm: 'Voulez-vous vraiment supprimer toutes les images de cette offre ?' } %>
+    <br/><%= button_to 'Supprimer toutes les images', "#{offer_path(@offer)}/images", method: :delete, data: { confirm: 'Voulez-vous vraiment supprimer toutes les images de cette offre ?' } %>
   <% end %>
 </p>
 
 <% if current_user_can_modify?(@offer) %>
-  <%= link_to 'Modifier', edit_offer_path(@offer) %> |
-  <%= link_to 'Supprimer', @offer, method: :delete, data: { confirm: 'Voulez-vous vraiment supprimer cette offre ?' } %> |
+  <%= button_to 'Modifier', edit_offer_path(@offer), method: :get %>
+  <%= button_to 'Supprimer', @offer, method: :delete, data: { confirm: 'Voulez-vous vraiment supprimer cette offre ?' } %>
 <% end %>
-<%= link_to 'Retour à la liste des offres', offers_path %>
+<%= button_to 'Liste des offres', offers_path, method: :get %>
