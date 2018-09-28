@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ScagsBourse</title>
+    <title>Bourse Ski Club</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -21,8 +21,12 @@
         <% end %>
       </ul>
     </header>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <% if notice %>
+      <p class="notice"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
     <%= yield %>
   </body>
 </html>
