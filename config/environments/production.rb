@@ -79,8 +79,7 @@ Rails.application.configure do
     reply_to: "Ne pas répondre <noreply@example.com>"
   }
   config.action_mailer.default_url_options = {
-    # host: "https://bourse.skiclub-alpedugrandserre.com"
-    host: "https://scags-bourse.toadjaune.eu"
+    host: "https://bourse.skiclub-alpedugrandserre.com"
   }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
