@@ -4,8 +4,10 @@
 </p>
 
 <p>
-  <strong>Texte :</strong>
-  <%= @offer.text %>
+  <strong>Description :</strong>
+  <% @offer.text.split("\n").each do |line| %>
+    <br/><%= line %>
+  <% end %>
 </p>
 
 <p>
@@ -19,18 +21,21 @@
   <% end %>
 </p>
 
-<p>
-  <strong>Images :</strong><br/>
-  <% @offer.images.each do |image| %>
-    <%= image_tag image.variant(resize: "400x400") %>
-  <% end %>
-  <% if current_user_can_modify?(@offer) %>
-    <br/><%= button_to 'Supprimer toutes les images', "#{offer_path(@offer)}/images", method: :delete, data: { confirm: 'Voulez-vous vraiment supprimer toutes les images de cette offre ?' } %>
-  <% end %>
-</p>
+<% if @offer.images.any? %>
+  <p>
+    <strong>Images :</strong><br/>
+    <% @offer.images.each do |image| %>
+      <%= image_tag image.variant(resize: "400x400") %>
+    <% end %>
+    <% if current_user_can_modify?(@offer) %>
+      <br/><%= button_to 'Supprimer toutes les images', "#{offer_path(@offer)}/images", method: :delete, data: { confirm: 'Voulez-vous vraiment supprimer toutes les images de cette offre ?' } %>
+    <% end %>
+  </p>
+<% end %>
 
 <% if current_user_can_modify?(@offer) %>
   <%= button_to 'Modifier', edit_offer_path(@offer), method: :get %>
   <%= button_to 'Supprimer', @offer, method: :delete, data: { confirm: 'Voulez-vous vraiment supprimer cette offre ?' } %>
 <% end %>
 <%= button_to 'Liste des offres', offers_path, method: :get %>
+<%= button_to 'Page d\'accueil', root_path, method: :get%>
