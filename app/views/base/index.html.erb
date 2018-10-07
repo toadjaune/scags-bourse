@@ -16,8 +16,8 @@
 
 <% if ! user_signed_in? %>
   <p>Vous n'êtes actuellement pas connecté, vous ne pouvez donc ni voir ni proposer d'offre.</p>
-  <p>Si c'est votre première connexion, merci d'utiliser la fonctionnalité "Mot de passe oublié" pour vous créer un mot de passe.</p>
-  <p>Vous devriez avoir reçu un email vous indiquant la création de votre compte, dans le cas contraire, merci de contacter le bureau.</p>
+  <p>Si c'est votre première connexion, il vous faut tout d'abord confirmer votre adresse email, grâce au lien dans l'email que vous avez reçu.
+  Ensuite, vous devrez utiliser la fonctionnalité "Mot de passe oublié" (Disponible par le bouton "connexion", en haut à droite) pour choisir votre mot de passe.</p>
 <% else %>
   <p>Vous pouvez accéder à la <%= link_to 'liste des offres', offers_path %>, ou bien en <%= link_to 'créer une', new_offer_path %>.
   Vous pouvez également <%= link_to 'modifier vos informations de contact', current_user %>.</p>
