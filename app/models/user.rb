@@ -34,6 +34,13 @@ class User < ApplicationRecord
 
   has_many :offers
 
+  before_validation on: :create do
+    if password.nil?
+      # NB : This is not a cryptographically-secure random number, but it doesn't really matter here
+      self.password = rand(100000000000000000000000000)
+    end
+  end
+
   def to_s
     if name
       return name
@@ -41,4 +48,5 @@ class User < ApplicationRecord
       return email
     end
   end
+
 end
