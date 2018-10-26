@@ -1,24 +1,18 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+I don't know how you got here, but I doubt you'll find anything useful to you here.
 
-Things you may want to cover:
+This is a website that I hacked together for my ski club, in order to ease selling stuff between members.
 
-* Ruby version
+The code is not really meant to be any of the following :
+  - Clean and following best practices
+  - Properly covered by tests
+  - Meant to be reusable by anyone else
+  - Easily translatable
+  - Easily readable / extendable
 
-* System dependencies
+Feel however free to use it !
 
-* Configuration
+## License
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This website is licensed under AGPLv3+
