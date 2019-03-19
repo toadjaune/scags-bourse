@@ -19,9 +19,9 @@
         dest: "{{ target_dir }}/config/master.key"
 
     - name: Build the docker image
-      command: "docker build -t {{ docker_image_name }} ."
-      args:
-        chdir: "{{ target_dir }}"
+      docker_image:
+        path: "{{ target_dir }}"
+        name: "{{ docker_image_name }}"
 
     - name: Create the systemd unit file
       copy:
