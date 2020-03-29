@@ -245,6 +245,7 @@ DEPENDENCIES
   better_errors (~> 2.5)
   binding_of_caller
   bootsnap (>= 1.1.0)
+  bundler (~> 1.16)
   byebug
   capybara (>= 2.15)
   chromedriver-helper
@@ -272,4 +273,4 @@ RUBY VERSION
    ruby 2.5.1p57
 
 BUNDLED WITH
-   2.1.4
+   1.16.0

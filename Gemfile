@@ -46,6 +46,10 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Test with rspec
   gem 'rspec-rails', '~> 3.8'
+
+  # We explicitely pin bundler to 1.x because the docker image used to deploy has it,
+  # and upgrading bundler upgrades the lockfile format
+  gem 'bundler', '~> 1.16'
 end
 
 group :development do

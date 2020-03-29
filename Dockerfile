@@ -8,7 +8,7 @@ WORKDIR /code
 
 RUN apt-get update
 RUN apt-get install -y build-essential libpq-dev imagemagick
-RUN gem install bundler
+RUN bin/bundle --version
 RUN bundle install --deployment --without development test
 
 RUN bin/rails assets:precompile
