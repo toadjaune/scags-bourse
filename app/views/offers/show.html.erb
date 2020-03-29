@@ -21,6 +21,10 @@
   <% end %>
 </p>
 
+<p>
+  <strong>Offre publique : </strong><%= @offer.public ? 'Oui' : 'Non' %>
+</p>
+
 <% if @offer.images.any? %>
   <p>
     <strong>Images :</strong><br/>

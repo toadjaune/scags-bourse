@@ -20,10 +20,21 @@
     <%= form.label :text, 'Contenu détaillé' %>
     <%= form.text_area :text %>
   </div>
+
+  <div class="field">
+    <%= form.label :public, 'Offre publique ?' %>
+    <%= form.check_box :public %>
+    <br/>
+    Une offre publique est visible par n'importe qui sur Internet, et affiche vos coordonnées.
+    <br/>
+    Une offre privée n'est visible que par les utilisateurs ayant un compte sur le site.
+  </div>
+
   <div class="field">
     <%= form.label :images, 'Ajouter une image :' %>
     <%= form.file_field :images, multiple: true %><br/>
   </div>
+
   <div class="actions">
     <%= form.submit 'Valider' %>
   </div>
