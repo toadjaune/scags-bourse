@@ -16,3 +16,14 @@ Feel however free to use it !
 ## License
 
 This website is licensed under AGPLv3+
+
+## Deploying
+
+Deployment is made with ansible (min version 2.8).
+
+The current way to do it is quite ugly (locally build a docker image, and start it in the host network namespace.
+
+Create an inventory file, then :
+```
+ansible-playbook -i your.inventory playbook.yml
+```

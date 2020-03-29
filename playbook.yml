@@ -20,8 +20,11 @@
 
     - name: Build the docker image
       docker_image:
-        path: "{{ target_dir }}"
         name: "{{ docker_image_name }}"
+        source: build
+        build:
+          path: "{{ target_dir }}"
+          pull: true
 
     - name: Create the systemd unit file
       copy:
