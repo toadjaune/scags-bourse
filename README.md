@@ -17,6 +17,10 @@ Feel however free to use it !
 
 This website is licensed under AGPLv3+
 
+## Local dev
+
+Use `rbenv` to setup local env, install postgres db
+
 ## Deploying
 
 Deployment is made with ansible (min version 2.8).
