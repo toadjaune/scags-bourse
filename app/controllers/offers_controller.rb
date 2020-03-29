@@ -3,11 +3,16 @@ class OffersController < ApplicationController
 
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_offer, only: [:show, :edit, :update, :destroy, :purge_images]
+  before_action :ensure_current_user_can_see, only: :show
   before_action :ensure_current_user_can_modify, only: [:update, :destroy, :purge_images]
 
   # GET /offers
   def index
-    @offers = Offer.all
+    if user_signed_in?
+      @offers = Offer.all
+    else
+      @offers = Offer.where(public: true)
+    end
   end
 
   # GET /offers/1
@@ -62,6 +67,12 @@ class OffersController < ApplicationController
       @offer = Offer.find(params[:id])
     end
 
+    def ensure_current_user_can_see
+      if ! current_user_can_see?(@offer)
+        redirect_to offers_url, alert: 'Vous n\'êtes pas autorisé à voir cette offre'
+      end
+    end
+
     def ensure_current_user_can_modify
       if ! current_user_can_modify?(@offer)
         redirect_to @offer, alert: 'Vous n\'êtes pas autorisé à modifier cette offre'
@@ -70,6 +81,6 @@ class OffersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def offer_params
-      params.require(:offer).permit(:title, :text, images: [])
+      params.require(:offer).permit(:title, :text, :public, images: [])
     end
 end
