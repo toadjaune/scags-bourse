@@ -21,6 +21,18 @@ This website is licensed under AGPLv3+
 
 Use `rbenv` to setup local env, install postgres db
 
+```
+rbenv install 2.5.1
+gem install bundler
+bin/bundler install
+```
+
+Useful commands :
+
+* `bin/rails server` : start the local server
+* `bin/rails console` : open a rails console
+* `bin/bundle exec annotate --models` : re-annotate model files after a db structure change
+
 ## Deploying
 
 Deployment is made with ansible (min version 2.8).
