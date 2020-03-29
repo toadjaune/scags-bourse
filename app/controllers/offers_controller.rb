@@ -1,7 +1,7 @@
 class OffersController < ApplicationController
   include OffersHelper
 
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_offer, only: [:show, :edit, :update, :destroy, :purge_images]
   before_action :ensure_current_user_can_modify, only: [:update, :destroy, :purge_images]
 

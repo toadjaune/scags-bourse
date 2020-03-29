@@ -1,21 +1,20 @@
 <h1>Page d'accueil</h1>
 
+<p>
+<%= button_to 'Liste des offres', offers_path, method: :get %>
+<%= button_to 'Nouvelle offre', new_offer_path, method: :get %>
 <% if user_signed_in? %>
-  <p>
-    <%= button_to 'Liste des offres', offers_path, method: :get %>
-    <%= button_to 'Nouvelle offre', new_offer_path, method: :get %>
-    <%= button_to 'Infos de contact', current_user, method: :get %>
+    <%= button_to 'Mes coordonnées', current_user, method: :get %>
     <% if current_user.admin? %>
         <%= button_to 'Liste des utilisateurs', users_path, method: :get %>
     <% end %>
-  </p>
 <% end %>
+</p>
 
 <p>Bienvenue !</p>
 <p>Sur ce site, vous pouvez proposer du matériel en revente au sein du club, et voir les offres des autres.</p>
 
 <% if ! user_signed_in? %>
-  <p>Vous n'êtes actuellement pas connecté, vous ne pouvez donc ni voir ni proposer d'offre.</p>
   <p>Si c'est votre première connexion, il vous faut tout d'abord confirmer votre adresse email, grâce au lien dans l'email que vous avez reçu.
   Ensuite, vous devrez utiliser la fonctionnalité "Mot de passe oublié" (Disponible par le bouton "connexion", en haut à droite) pour choisir votre mot de passe.</p>
 <% else %>
