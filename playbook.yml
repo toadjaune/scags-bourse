@@ -39,7 +39,9 @@
           ExecStart=/usr/bin/docker run --name {{ docker_container_name }} --rm --net=host -v {{ target_dir }}/log:/code/log -v {{ target_dir }}/storage:/code/storage {{ docker_image_name }}
           ExecStop=/usr/bin/docker stop {{ docker_container_name }}
           WorkingDirectory={{ target_dir }}
+          # Restart=always alone is not enough https://unix.stackexchange.com/a/324297
           Restart=always
+          RestartSec=10
 
           [Install]
           WantedBy=multi-user.target
