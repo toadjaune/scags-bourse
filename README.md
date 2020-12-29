@@ -22,7 +22,7 @@ This website is licensed under AGPLv3+
 Use `rbenv` to setup local env, install postgres db
 
 ```
-rbenv install 2.5.1
+rbenv install
 gem install bundler
 bin/bundler install
 ```
