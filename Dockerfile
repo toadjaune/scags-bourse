@@ -1,4 +1,4 @@
-FROM ruby:2.5.8-slim
+FROM ruby:2.7.2-slim
 
 # Remove this ?
 ENV RAILS_ENV production
