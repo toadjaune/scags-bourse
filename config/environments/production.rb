@@ -71,11 +71,14 @@ Rails.application.configure do
   # config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.smtp_settings = {
-    address: "localhost",
-    port: 25
+    address: "smtp.sendgrid.net",
+    port: 25,
+    user_name: "apikey",
+    password: Rails.application.credentials.sendgrid_password,
+    authentication: :login
   }
   config.action_mailer.default_options = {
-    from: "Ski Club Alpe du Grand Serre <scags-noreply@rez-gif.supelec.fr>",
+    from: "Ski Club Alpe du Grand Serre <scags-bureau@googlegroups.com>",
     reply_to: "Ne pas répondre <noreply@example.com>"
   }
   config.action_mailer.default_url_options = {
