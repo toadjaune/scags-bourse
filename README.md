@@ -23,11 +23,9 @@ Use `rbenv` to setup local env, install postgres db
 
 ```
 rbenv install
-gem install bundler -v '< 2'
+gem install bundler
 bin/bundler install
 ```
-
-NB : we stay with bundler v1.x for now because it is the version included in the ruby image
 
 Useful commands :
 
