@@ -1,4 +1,4 @@
-FROM ruby:2.5.1-slim-stretch
+FROM ruby:2.5.1-slim
 
 # Remove this ?
 ENV RAILS_ENV production
