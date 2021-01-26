@@ -78,7 +78,7 @@ Rails.application.configure do
     authentication: :login
   }
   config.action_mailer.default_options = {
-    from: "Ski Club Alpe du Grand Serre <scags-bureau@googlegroups.com>",
+    from: "Bourse Ski Club Alpe du Grand Serre <bourse@skiclub-ags.fr>",
     reply_to: "Ne pas répondre <noreply@example.com>"
   }
   config.action_mailer.default_url_options = {
