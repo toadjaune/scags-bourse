@@ -33,6 +33,11 @@ Useful commands :
 * `bin/rails console` : open a rails console
 * `bin/bundle exec annotate --models` : re-annotate model files after a db structure change
 
+## Updating dependencies
+
+* If you want to update the bundler version too (may be needed for deployment), first `rm Gemflie.lock`
+* `bin/bundle update`
+
 ## Deploying
 
 Deployment is made with ansible (min version 2.8).
