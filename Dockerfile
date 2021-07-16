@@ -1,4 +1,7 @@
-FROM ruby:2.7.2-slim
+FROM ruby:2.7.4-slim
+
+RUN apt-get update \
+ && apt-get install -y build-essential libpq-dev imagemagick
 
 # Remove this ?
 ENV RAILS_ENV production
@@ -6,12 +9,13 @@ ENV RAILS_ENV production
 COPY . /code/
 WORKDIR /code
 
-RUN apt-get update
-RUN apt-get install -y build-essential libpq-dev imagemagick
-# Install latest bundler version, let's hope that it won't complain if the version running is newer than the one in the lockfile
-RUN gem install bundler
-RUN bin/bundle --version
-RUN bundle install --deployment --without development test
+# We currently hardcode the bundler version here too
+# Not very elegant, but well...
+RUN gem install bundler --version 2.2.24
+
+RUN bin/bundle config set --local deployment 'true' \
+ && bin/bundle config set --local without 'development test' \
+ && bin/bundle install
 
 RUN bin/rails assets:precompile
 
