@@ -33,10 +33,17 @@ Useful commands :
 * `bin/rails console` : open a rails console
 * `bin/bundle exec annotate --models` : re-annotate model files after a db structure change
 
+### Postgres db setup
+
+* Install postgres
+* `sudo -u postgres createuser -d <your_username>
+* `bin/rails db:create`
+
 ## Updating dependencies
 
 * If you want to update the bundler version too (may be needed for deployment), first `rm Gemflie.lock`
 * `bin/bundle update`
+* `bin/rails db:migrate RAILS_ENV=development`
 
 ## Deploying
 
