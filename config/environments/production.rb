@@ -70,10 +70,10 @@ Rails.application.configure do
   # config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.smtp_settings = {
-    address: "smtp.sendgrid.net",
+    address: "in-v3.mailjet.com",
     port: 587,
-    user_name: "apikey",
-    password: Rails.application.credentials.sendgrid_password,
+    user_name: "be96afeb3abee3f5cc8ac952f525b184",
+    password: Rails.application.credentials.mailjet_password,
     authentication: :login
   }
   config.action_mailer.default_options = {
