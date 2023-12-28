@@ -12,6 +12,7 @@
       git:
         repo: "{{ git_clone_url }}"
         dest: "{{ target_dir }}"
+        version: main
 
     - name: Copy the rails secrets encryption key
       copy:
