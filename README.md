@@ -41,7 +41,7 @@ Useful commands :
 
 ## Updating dependencies
 
-* If you want to update the bundler version too (may be needed for deployment), first `rm Gemflie.lock`
+* `bin/bundle update --bundler` (if you need to change the bundler version)
 * `bin/bundle update`
 * `bin/rails db:migrate RAILS_ENV=development`
 
