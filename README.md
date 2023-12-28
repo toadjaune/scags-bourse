@@ -47,6 +47,9 @@ Useful commands :
 
 ## Deploying
 
+First, ensure you have the rails secrets key in `config/master.key`.
+Otherwise, run `echo '<secret found in pw manager>' > config/master.key`
+
 Deployment is made with ansible (min version 2.8).
 
 The current way to do it is quite ugly (locally build a docker image, and start it in the host network namespace.
