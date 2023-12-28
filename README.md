@@ -45,6 +45,9 @@ Useful commands :
 * `bin/bundle update`
 * `bin/rails db:migrate RAILS_ENV=development`
 
+If you don't want to upgrade your local deps :
+* `bin/bundle lock --update`
+
 ## Deploying
 
 First, ensure you have the rails secrets key in `config/master.key`.
