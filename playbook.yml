@@ -8,7 +8,7 @@
     systemd_unit_name:  "scags.service"
 
   tasks:
-    - name: Clone the repository (always deploy master)
+    - name: Clone the repository (always deploy main)
       git:
         repo: "{{ git_clone_url }}"
         dest: "{{ target_dir }}"
